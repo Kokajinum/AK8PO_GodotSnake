@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cshf6hy3ifoxh"]
+
+[ext_resource type="Script" path="res://game_over_menu.gd" id="1_d0sdi"]
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_d0sdi")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 463.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 28.0
+offset_right = 317.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 28
+text = "GAME OVER!"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 129.0
+offset_top = 131.0
+offset_right = 336.0
+offset_bottom = 169.0
+text = "PLAY AGAIN"
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 185.0
+offset_top = 86.0
+offset_right = 293.0
+offset_bottom = 109.0
+text = "YOUR SCORE: "
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvbb6dx5cnkhc"]
+
+[ext_resource type="Script" path="res://main_node_2d.gd" id="1_0sce3"]
+[ext_resource type="Texture2D" uid="uid://bpapqm7085cm0" path="res://snake_background.png" id="1_s1yr2"]
+[ext_resource type="Texture2D" uid="uid://d2d0jrkxaf0ks" path="res://apple.png" id="3_jjfwu"]
+[ext_resource type="PackedScene" uid="uid://cshf6hy3ifoxh" path="res://game_over_menu.tscn" id="4_nftan"]
+
+[node name="MainNode2D" type="Node2D"]
+script = ExtResource("1_0sce3")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(500, 500)
+texture = ExtResource("1_s1yr2")
+
+[node name="Food" type="Sprite2D" parent="."]
+position = Vector2(400, 450)
+texture = ExtResource("3_jjfwu")
+centered = false
+
+[node name="GameOverMenu" parent="." instance=ExtResource("4_nftan")]
+process_mode = 2
+offset = Vector2(280, 350)
+transform = Transform2D(1, 0, 0, 1, 280, 350)
+
+[connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]
